@@ -4,8 +4,8 @@ kind: Subscription
 metadata:
   name: opentelemetry-product
   namespace: openshift-operators
-  annotations:
-    {{- include "opentelemetry-operator.argocd-syncwave" . | nindent 4 }}
+  # annotations:
+  #   {{- include "opentelemetry-operator.argocd-syncwave" . | nindent 4 }}
 spec:
   channel: {{ .Values.tempo.subscription.channel }}
   installPlanApproval: {{ .Values.tempo.subscription.installPlanApproval }}

@@ -1,6 +1,6 @@
 namespace: ""
 
-kiali:
+tempo:
   subscription:
     channel: "stable"
     installPlanApproval: Automatic
