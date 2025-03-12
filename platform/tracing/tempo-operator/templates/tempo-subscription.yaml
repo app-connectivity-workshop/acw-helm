@@ -1,0 +1,14 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: {{ include "tempo-operator.name" . }}-operator
+  namespace: {{ include "tempo-operator.namespace" . }}
+  annotations:
+    {{- include "tempo-operator.argocd-syncwave" . | nindent 4 }}
+spec:
+  channel: {{ .Values.tempo.subscription.channel }}
+  installPlanApproval: {{ .Values.tempo.subscription.installPlanApproval }}
+  name: {{ .Values.tempo.subscription.name }}
+  source: {{ .Values.tempo.subscription.source }}
+  sourceNamespace: {{ .Values.tempo.subscription.sourceNamespace }}

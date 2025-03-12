@@ -1,0 +1,16 @@
+namespace: ""
+
+tempo:
+  subscription:
+    channel: "fast"
+    installPlanApproval: Automatic
+    name: web-terminal
+    source: redhat-operators
+    sourceNamespace: openshift-operators
+
+argocd:
+  enabled: true
+  operatorgroup:
+    syncwave: "-3"
+  operator:
+    syncwave: "-2"
