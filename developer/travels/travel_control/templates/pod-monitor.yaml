@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   name: istio-proxies-monitor
-  namespace: travel_control
+  namespace: travel-control
 spec:
   selector:
     matchExpressions:

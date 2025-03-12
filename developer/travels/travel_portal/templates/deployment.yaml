@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: control
-  namespace: travel_portal
+  namespace: travel-portal
 spec:
   selector:
     matchLabels:

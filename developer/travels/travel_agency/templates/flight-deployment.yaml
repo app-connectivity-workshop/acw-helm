@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: flights-v1
-  namespace: travel_agency
+  namespace: travel-agency
 spec:
   selector:
     matchLabels:

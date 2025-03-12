@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysqldb-v1
-  namespace: travel_agency
+  namespace: travel-agency
   labels:
     app: mysqldb
     version: v1

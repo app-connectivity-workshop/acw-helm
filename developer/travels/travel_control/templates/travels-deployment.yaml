@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: travels
-  namespace: travel_control
+  namespace: travel-control
 spec:
   selector:
     matchLabels:
