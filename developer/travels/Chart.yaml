@@ -5,12 +5,12 @@ type: application
 version: 0.1.0
 
 dependencies:
-  - name: travel_agency
+  - name: travel-agency
     version: 0.1.0
     repository: file://travel_agency
-  - name: travel_control
+  - name: travel-control
     version: 0.1.0
     repository: file://travel_control
-  - name: travel_portal
+  - name: travel-portal
     version: 0.1.0
     repository: file://travel_portal
