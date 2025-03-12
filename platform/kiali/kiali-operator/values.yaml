@@ -1,10 +1,10 @@
 namespace: ""
 
-keycloak:
+kiali:
   subscription:
-    channel: "fast"
+    channel: "stable"
     installPlanApproval: Automatic
-    name: web-terminal
+    name: tempo-product
     source: redhat-operators
     sourceNamespace: openshift-operators
 

@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "kiali-operator.name" -}}
+{{- define "opentelemetry-operator.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "kiali-operator.fullname" -}}
+{{- define "opentelemetry-operator.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "kiali-operator.chart" -}}
+{{- define "opentelemetry-operator.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "kiali-operator.labels" -}}
-helm.sh/chart: {{ include "kiali-operator.chart" . }}
-{{ include "kiali-operator.selectorLabels" . }}
+{{- define "opentelemetry-operator.labels" -}}
+helm.sh/chart: {{ include "opentelemetry-operator.chart" . }}
+{{ include "opentelemetry-operator.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "kiali-operator.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "kiali-operator.name" . }}
+{{- define "opentelemetry-operator.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "opentelemetry-operator.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "kiali-operator.serviceAccountName" -}}
+{{- define "opentelemetry-operator.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "kiali-operator.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "opentelemetry-operator.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
@@ -64,7 +64,7 @@ Create the name of the service account to use
 {{/*
 Determine target namespace
 */}}
-{{- define "kiali-operator.namespace" -}}
+{{- define "opentelemetry-operator.namespace" -}}
 {{- if .Values.namespace }}
 {{- printf "%s" .Values.namespace}}
 {{- else }}
@@ -75,7 +75,7 @@ Determine target namespace
 {{/*
 ArgoCD Syncwave
 */}}
-{{- define "kiali-operator.argocd-syncwave" -}}
+{{- define "opentelemetry-operator.argocd-syncwave" -}}
 {{- if .Values.argocd }}
 {{- if and (.Values.argocd.operator.syncwave) (.Values.argocd.enabled) -}}
 argocd.argoproj.io/sync-wave: "{{ .Values.argocd.operator.syncwave }}"
@@ -90,7 +90,7 @@ argocd.argoproj.io/sync-wave: "{{ .Values.argocd.operator.syncwave }}"
 {{/*
 ArgoCD Syncwave
 */}}
-{{- define "kiali-operatorgroup.argocd-syncwave" -}}
+{{- define "opentelemetry-operatorgroup.argocd-syncwave" -}}
 {{- if .Values.argocd }}
 {{- if and (.Values.argocd.operatorgroup.syncwave) (.Values.argocd.enabled) -}}
 argocd.argoproj.io/sync-wave: "{{ .Values.argocd.operatorgroup.syncwave }}"

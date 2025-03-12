@@ -1,0 +1,9 @@
+---
+
+subscription:
+  channel: "stable-1.8"
+  installPlanApproval: Automatic
+  name: skupper-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: ""

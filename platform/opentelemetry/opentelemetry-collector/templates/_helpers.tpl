@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "kiali.name" -}}
+{{- define "opentelemetry-collector.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "kiali.fullname" -}}
+{{- define "opentelemetry-collector.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "kiali.chart" -}}
+{{- define "opentelemetry-collector.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "kiali.labels" -}}
-helm.sh/chart: {{ include "kiali.chart" . }}
-{{ include "kiali.selectorLabels" . }}
+{{- define "opentelemetry-collector.labels" -}}
+helm.sh/chart: {{ include "opentelemetry-collector.chart" . }}
+{{ include "opentelemetry-collector.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "kiali.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "kiali.name" . }}
+{{- define "opentelemetry-collector.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "opentelemetry-collector.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "kiali.serviceAccountName" -}}
+{{- define "opentelemetry-collector.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "kiali.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "opentelemetry-collector.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

@@ -1,10 +1,10 @@
 namespace: ""
 
-tempo:
+webterminal:
   subscription:
-    channel: "stable"
+    channel: "fast"
     installPlanApproval: Automatic
-    name: tempo-product
+    name: web-terminal
     source: redhat-operators
     sourceNamespace: openshift-operators
 

@@ -1,10 +1,10 @@
 namespace: ""
 
-tempo:
+kiali:
   subscription:
     channel: "stable"
     installPlanApproval: Automatic
-    name: tempo-product
+    name: opentelemetry-product
     source: redhat-operators
     sourceNamespace: openshift-operators
 
