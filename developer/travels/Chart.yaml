@@ -1,0 +1,16 @@
+apiVersion: v2
+name: ingress-gateway
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+
+dependencies:
+  - name: travel_agency
+    version: 0.1.0
+    repository: file://travel_agency
+  - name: travel_control
+    version: 0.1.0
+    repository: file://travel_control
+  - name: travel_portal
+    version: 0.1.0
+    repository: file://travel_portal
