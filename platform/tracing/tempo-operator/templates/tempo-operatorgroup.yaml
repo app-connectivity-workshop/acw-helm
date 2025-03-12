@@ -2,10 +2,10 @@
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: "{{ include "kiali-operator.name" . }}-operatorgroup"
-  namespace: {{ include "kiali-operator.namespace" . }}
+  name: "{{ include "tempo-operator.name" . }}-operatorgroup"
+  namespace: {{ include "tempo-operator.namespace" . }}
   annotations:
-    {{- include "kiali-operatorgroup.argocd-syncwave" . | nindent 4 }}
+    {{- include "tempo-operatorgroup.argocd-syncwave" . | nindent 4 }}
 spec:
   targetNamespaces:
-    - {{ include "kiali-operator.namespace" . }}
+    - {{ include "tempo-operator.namespace" . }}
