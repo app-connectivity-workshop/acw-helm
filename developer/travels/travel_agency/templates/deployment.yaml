@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysqldb-v1
-  namespace: {{ .Release.Namespace }}
+  namespace: travel_agency
   labels:
     app: mysqldb
     version: v1

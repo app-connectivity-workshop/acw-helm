@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: discounts-v1
-  namespace: {{ .Release.Namespace }}
+  namespace: travel_agency
 spec:
   selector:
     matchLabels:

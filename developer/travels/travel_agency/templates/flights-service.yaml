@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: flights
-  namespace: {{ .Release.Namespace }}
+  namespace: travel_agency
   labels:
     app: flights
 spec:
