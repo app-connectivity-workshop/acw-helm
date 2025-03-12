@@ -1,0 +1,12 @@
+
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: opentelemetry-product
+  namespace: openshift-operators
+  annotations:
+    {{- include "opentelemetry-operatorgroup.argocd-syncwave" . | nindent 4 }}
+spec:
+  targetNamespaces:
+    - {{ include "opentelemetry-operator.namespace" . }}

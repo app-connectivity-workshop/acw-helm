@@ -1,0 +1,15 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: opentelemetry-product
+  namespace: openshift-operators
+  # annotations:
+  #   {{- include "opentelemetry-operator.argocd-syncwave" . | nindent 4 }}
+spec:
+  channel: {{ .Values.opentelemetry.subscription.channel }}
+  installPlanApproval: {{ .Values.opentelemetry.subscription.installPlanApproval }}
+  name: {{ .Values.opentelemetry.subscription.name }}
+  source: {{ .Values.opentelemetry.subscription.source }}
+  sourceNamespace: {{ .Values.opentelemetry.subscription.sourceNamespace }}
+

@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "opentelemetry-operator.name" -}}
+{{- define "opentelemetry.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "opentelemetry-operator.fullname" -}}
+{{- define "opentelemetry.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "opentelemetry-operator.chart" -}}
+{{- define "opentelemetry.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "opentelemetry-operator.labels" -}}
-helm.sh/chart: {{ include "opentelemetry-operator.chart" . }}
-{{ include "opentelemetry-operator.selectorLabels" . }}
+{{- define "opentelemetry.labels" -}}
+helm.sh/chart: {{ include "opentelemetry.chart" . }}
+{{ include "opentelemetry.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "opentelemetry-operator.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "opentelemetry-operator.name" . }}
+{{- define "opentelemetry.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "opentelemetry.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "opentelemetry-operator.serviceAccountName" -}}
+{{- define "opentelemetry.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "opentelemetry-operator.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "opentelemetry.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
@@ -64,7 +64,7 @@ Create the name of the service account to use
 {{/*
 Determine target namespace
 */}}
-{{- define "opentelemetry-operator.namespace" -}}
+{{- define "opentelemetry.namespace" -}}
 {{- if .Values.namespace }}
 {{- printf "%s" .Values.namespace}}
 {{- else }}
@@ -75,7 +75,7 @@ Determine target namespace
 {{/*
 ArgoCD Syncwave
 */}}
-{{- define "opentelemetry-operator.argocd-syncwave" -}}
+{{- define "opentelemetry.argocd-syncwave" -}}
 {{- if .Values.argocd }}
 {{- if and (.Values.argocd.operator.syncwave) (.Values.argocd.enabled) -}}
 argocd.argoproj.io/sync-wave: "{{ .Values.argocd.operator.syncwave }}"
@@ -90,7 +90,7 @@ argocd.argoproj.io/sync-wave: "{{ .Values.argocd.operator.syncwave }}"
 {{/*
 ArgoCD Syncwave
 */}}
-{{- define "opentelemetry-operatorgroup.argocd-syncwave" -}}
+{{- define "opentelemetrygroup.argocd-syncwave" -}}
 {{- if .Values.argocd }}
 {{- if and (.Values.argocd.operatorgroup.syncwave) (.Values.argocd.enabled) -}}
 argocd.argoproj.io/sync-wave: "{{ .Values.argocd.operatorgroup.syncwave }}"

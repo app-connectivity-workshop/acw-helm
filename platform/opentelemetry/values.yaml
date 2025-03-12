@@ -1,0 +1,19 @@
+namespace: ""
+
+opentelemetry:
+  subscription:
+    channel: "stable"
+    installPlanApproval: Automatic
+    name: opentelemetry-product
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+
+argocd:
+  enabled: true
+  operatorgroup:
+    syncwave: "-3"
+  operator:
+    syncwave: "-2"
+
+
+replicaCount: 1
