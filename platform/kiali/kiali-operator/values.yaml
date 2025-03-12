@@ -1,12 +1,11 @@
 namespace: ""
 
-kiali:
-  subscription:
-    channel: "stable"
-    installPlanApproval: Automatic
-    name: kiali-ossm
-    source: redhat-operators
-    sourceNamespace: openshift-operators
+subscription:
+  channel: "stable"
+  installPlanApproval: Automatic
+  name: kiali-ossm
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
 
 argocd:
   enabled: true
