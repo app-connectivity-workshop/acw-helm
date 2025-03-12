@@ -2,10 +2,10 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: {{ include "webterminal-operator.name" . }}-operator
-  namespace: {{ include "webterminal-operator.namespace" . }}
+  name: {{ include "webterminal.name" . }}-operator
+  namespace: {{ include "webterminal.namespace" . }}
   annotations:
-    {{- include "webterminal-operator.argocd-syncwave" . | nindent 4 }}
+    {{- include "webterminal.argocd-syncwave" . | nindent 4 }}
 spec:
   channel: {{ .Values.webterminal.subscription.channel }}
   installPlanApproval: {{ .Values.webterminal.subscription.installPlanApproval }}

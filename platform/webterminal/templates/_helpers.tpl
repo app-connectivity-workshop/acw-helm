@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "webterminal-operator.name" -}}
+{{- define "webterminal.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "webterminal-operator.fullname" -}}
+{{- define "webterminal.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "webterminal-operator.chart" -}}
+{{- define "webterminal.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "webterminal-operator.labels" -}}
-helm.sh/chart: {{ include "webterminal-operator.chart" . }}
-{{ include "webterminal-operator.selectorLabels" . }}
+{{- define "webterminal.labels" -}}
+helm.sh/chart: {{ include "webterminal.chart" . }}
+{{ include "webterminal.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "webterminal-operator.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "webterminal-operator.name" . }}
+{{- define "webterminal.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "webterminal.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "webterminal-operator.serviceAccountName" -}}
+{{- define "webterminal.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "webterminal-operator.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "webterminal.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
@@ -64,7 +64,7 @@ Create the name of the service account to use
 {{/*
 Determine target namespace
 */}}
-{{- define "webterminal-operator.namespace" -}}
+{{- define "webterminal.namespace" -}}
 {{- if .Values.namespace }}
 {{- printf "%s" .Values.namespace}}
 {{- else }}
@@ -75,7 +75,7 @@ Determine target namespace
 {{/*
 ArgoCD Syncwave
 */}}
-{{- define "webterminal-operator.argocd-syncwave" -}}
+{{- define "webterminal.argocd-syncwave" -}}
 {{- if .Values.argocd }}
 {{- if and (.Values.argocd.operator.syncwave) (.Values.argocd.enabled) -}}
 argocd.argoproj.io/sync-wave: "{{ .Values.argocd.operator.syncwave }}"
@@ -90,7 +90,7 @@ argocd.argoproj.io/sync-wave: "{{ .Values.argocd.operator.syncwave }}"
 {{/*
 ArgoCD Syncwave
 */}}
-{{- define "webterminal-operatorgroup.argocd-syncwave" -}}
+{{- define "webterminalgroup.argocd-syncwave" -}}
 {{- if .Values.argocd }}
 {{- if and (.Values.argocd.operatorgroup.syncwave) (.Values.argocd.enabled) -}}
 argocd.argoproj.io/sync-wave: "{{ .Values.argocd.operatorgroup.syncwave }}"
