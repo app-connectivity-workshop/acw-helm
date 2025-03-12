@@ -7,10 +7,10 @@ version: 0.1.0
 dependencies:
   - name: travel-agency
     version: 0.1.0
-    repository: file://travel_agency
+    repository: file://travel-agency
   - name: travel-control
     version: 0.1.0
-    repository: file://travel_control
+    repository: file://travel-control
   - name: travel-portal
     version: 0.1.0
-    repository: file://travel_portal
+    repository: file://travel-portal

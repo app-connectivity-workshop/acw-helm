@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "travel_control.name" -}}
+{{- define "travel-agency.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "travel_control.fullname" -}}
+{{- define "travel-agency.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "travel_control.chart" -}}
+{{- define "travel-agency.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "travel_control.labels" -}}
-helm.sh/chart: {{ include "travel_control.chart" . }}
-{{ include "travel_control.selectorLabels" . }}
+{{- define "travel-agency.labels" -}}
+helm.sh/chart: {{ include "travel-agency.chart" . }}
+{{ include "travel-agency.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "travel_control.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "travel_control.name" . }}
+{{- define "travel-agency.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "travel-agency.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "travel_control.serviceAccountName" -}}
+{{- define "travel-agency.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "travel_control.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "travel-agency.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
