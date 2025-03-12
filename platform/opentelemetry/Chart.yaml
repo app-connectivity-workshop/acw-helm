@@ -5,9 +5,10 @@ type: application
 version: 0.1.0
 
 dependencies:
-  - name: tempo-operator
+  - name: opentelemetry-operator
     version: 0.1.0
-    repository: file://tempo-operator
-  - name: tracing-system
+    repository: file://opentelemetry-operator
+  - name: opentelemetry-collector
     version: 0.1.0
-    repository: file://tracing-system
+    repository: file://opentelemetry-collector
+

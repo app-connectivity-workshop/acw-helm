@@ -1,13 +1,14 @@
 apiVersion: v2
 name: tracing
 description: A Helm chart for Kubernetes
-type: opentelemetry
+type: application
 version: 0.1.0
 
+
 dependencies:
-  - name: opentelemetry-operator
+  - name: tempo-operator
     version: 0.1.0
-    repository: file://opentelemetry-operator
-  - name: open-telemetry
+    repository: file://tempo-operator
+  - name: tracing-system
     version: 0.1.0
-    repository: file://open-telemetry
+    repository: file://tracing-system
