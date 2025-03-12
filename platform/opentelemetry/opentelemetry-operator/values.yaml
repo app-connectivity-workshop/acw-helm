@@ -6,7 +6,7 @@ kiali:
     installPlanApproval: Automatic
     name: opentelemetry-product
     source: redhat-operators
-    sourceNamespace: openshift-operators
+    sourceNamespace: openshift-marketplace
 
 argocd:
   enabled: true
