@@ -7,8 +7,9 @@ metadata:
   annotations:
     {{- include "kiali-operator.argocd-syncwave" . | nindent 4 }}
 spec:
-  channel: {{ .Values.kiali.subscription.channel }}
-  installPlanApproval: {{ .Values.kiali.subscription.installPlanApproval }}
-  name: {{ .Values.kiali.subscription.name }}
-  source: {{ .Values.kiali.subscription.source }}
-  sourceNamespace: {{ .Values.kiali.subscription.sourceNamespace }}
+  channel: stable
+  installPlanApproval: Automatic
+  name: kiali-ossm
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: kiali-operator.v2.4.3
