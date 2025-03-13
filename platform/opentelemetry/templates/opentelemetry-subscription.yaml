@@ -3,7 +3,6 @@ kind: Subscription
 metadata:
   name: opentelemetry-product
   namespace: openshift-operators
-  sourceNamespace: openshift-marketplace
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
