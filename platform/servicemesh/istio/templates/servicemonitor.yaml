@@ -6,9 +6,11 @@ metadata:
 spec:
   namespaceSelector:
     matchNames:
-      - {{ .Release.Namespace }}
+      - istio-system
   selector:
     matchLabels:
       app: istiod
+      istio: pilot
   endpoints:
     - port: http-monitoring
+      interval: 30s
