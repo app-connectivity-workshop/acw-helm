@@ -1,13 +1,13 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: tempo-product
+  name: opentelemetry-product
   namespace: openshift-operators
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
 spec:
   channel: stable
   installPlanApproval: Automatic
-  name: tempo-product
+  name: opentelemetry-product
   source: redhat-operators
   sourceNamespace: openshift-marketplace
