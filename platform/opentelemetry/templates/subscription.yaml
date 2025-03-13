@@ -3,8 +3,6 @@ kind: Subscription
 metadata:
   name: opentelemetry-product
   namespace: openshift-operators
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
 spec:
   channel: stable
   installPlanApproval: Automatic
