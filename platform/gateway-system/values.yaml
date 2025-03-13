@@ -1,9 +1,8 @@
----
 
 subscription:
   channel: 
   installPlanApproval: Automatic
-  name: sailoperator
+  name: servicemeshoperator3
   source: redhat-operators
   sourceNamespace: openshift-marketplace
   startingCSV: ""

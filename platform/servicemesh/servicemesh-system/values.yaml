@@ -1,0 +1,8 @@
+
+subscription:
+  channel: 
+  installPlanApproval: Automatic
+  name: servicemeshoperator3
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: ""
