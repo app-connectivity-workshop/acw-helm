@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "gateway-system.name" -}}
+{{- define "servicemesh-system.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "gateway-system.fullname" -}}
+{{- define "servicemesh-system.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "gateway-system.chart" -}}
+{{- define "servicemesh-system.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "gateway-system.labels" -}}
-helm.sh/chart: {{ include "gateway-system.chart" . }}
-{{ include "gateway-system.selectorLabels" . }}
+{{- define "servicemesh-system.labels" -}}
+helm.sh/chart: {{ include "servicemesh-system.chart" . }}
+{{ include "servicemesh-system.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "gateway-system.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "gateway-system.name" . }}
+{{- define "servicemesh-system.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "servicemesh-system.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "gateway-system.serviceAccountName" -}}
+{{- define "servicemesh-system.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "gateway-system.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "servicemesh-system.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

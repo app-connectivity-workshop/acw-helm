@@ -1,6 +1,6 @@
 kind: OperatorGroup
 apiVersion: operators.coreos.com/v1
 metadata:
-  name: {{ include "gateway-system.name" . }}
+  name: {{ include "servicemesh-system.name" . }}
 spec: 
   upgradeStrategy: Default
