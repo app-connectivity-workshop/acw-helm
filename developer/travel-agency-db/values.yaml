@@ -1,8 +1,0 @@
-networkpolicy: 
-  namespace:
-
-travel-db:
-  namespace: 
-
-skupper:
-  deploy: true

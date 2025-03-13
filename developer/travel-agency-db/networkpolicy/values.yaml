@@ -1,5 +1,0 @@
-enabled: true
-
-nameOverride: allow-same-namespace
-
-namespace:
