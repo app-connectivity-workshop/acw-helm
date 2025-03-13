@@ -1,6 +1,0 @@
-kind: OperatorGroup
-apiVersion: operators.coreos.com/v1
-metadata:
-  name: {{ include "gateway-system.name" . }}
-spec: 
-  upgradeStrategy: Default
