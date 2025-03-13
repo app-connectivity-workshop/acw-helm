@@ -2,6 +2,8 @@ apiVersion: opentelemetry.io/v1beta1
 kind: OpenTelemetryCollector
 metadata:
   name: otel
+  annotations:
+    argocd.argoproj.io/sync-wave: 0
 spec:
   config:
     receivers:
