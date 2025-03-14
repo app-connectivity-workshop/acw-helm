@@ -4,7 +4,7 @@ metadata:
   name: tempo-product
   namespace: openshift-operators
   annotations:
-    argocd.argoproj.io/sync-wave: "-3"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   channel: stable
   installPlanApproval: Automatic
