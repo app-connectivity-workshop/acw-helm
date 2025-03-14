@@ -1,0 +1,48 @@
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: gatewayingress
+spec:
+  podSelector:
+    matchLabels:
+      istio: ingressgateway
+  ingress:
+    - {}
+  policyTypes:
+  - Ingress
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  labels:
+    istio: ingressgateway
+    release: istio
+  name: ingressgatewayhpa
+spec:
+  maxReplicas: 5
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 80
+        type: Utilization
+    type: Resource
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: istio-ingressgateway
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  labels:
+    istio: ingressgateway
+    release: istio
+  name: ingressgatewaypdb
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      istio: ingressgateway
