@@ -1,9 +1,9 @@
 replicaCount: 1
 
 image:
-  repository: quay.io/redhat-servicemesh-apim-demo/travels-demo-ui
+  repository: quay.io/app_conn_workshop/travels-demo-ui
   pullPolicy: IfNotPresent
-  tag: final
+  tag: latest
 
 podSecurityContext: {}
   # fsGroup: 2000
