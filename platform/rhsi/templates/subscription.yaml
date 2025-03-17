@@ -4,7 +4,7 @@ metadata:
   name: skupper-operator
   namespace: openshift-operators
 spec:
-  channel: stable-1.8
+  channel: stable-2.0
   installPlanApproval: Automatic
   name: skupper-operator
   source: redhat-operators
