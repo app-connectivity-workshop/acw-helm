@@ -27,3 +27,6 @@ httpRoute:
     name:
     namespace: 
   hostName:
+
+
+deployDb: true
