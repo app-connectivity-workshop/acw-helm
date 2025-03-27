@@ -1,0 +1,22 @@
+apiVersion: workspace.devfile.io/v1alpha2
+kind: DevWorkspace
+metadata:
+  name: devworkspaces
+  namespace: devworkspaces
+spec:
+  routingClass: che
+  started: true
+  contributions: {}
+  template:
+    projects:
+      - name: travel-project
+        git:
+          remotes:
+            origin: https://github.com/app-connectivity-workshop/workshop-devspaces.git
+          checkoutFrom:
+            revision: main
+    components:
+      - name: tooling
+        container:
+          image: registry.redhat.io/devspaces/udi-rhel8:latest
+
