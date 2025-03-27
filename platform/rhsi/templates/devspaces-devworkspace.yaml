@@ -1,11 +1,14 @@
 apiVersion: workspace.devfile.io/v1alpha2
 kind: DevWorkspace
 metadata:
-  name: devworkspaces
-  namespace: devworkspaces
+  name: {{ ocp4_workload_devspaces_devworkspace_name }}
+  namespace: {{ ocp4_workload_devspaces_devworkspace_namespace }}
 spec:
   routingClass: che
   started: true
+  contributions:
+    - name: ide
+      uri: https://devspaces.apps.cluster-xgcxp.xgcxp.sandbox4468.opentlc.com/plugin-registry/v3/plugins/che-incubator/che-code/latest/devfile.yaml
   template:
     projects:
       - name: travel-project
