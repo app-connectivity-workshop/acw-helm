@@ -6,7 +6,6 @@ metadata:
 spec:
   routingClass: che
   started: true
-  contributions: {}
   template:
     projects:
       - name: travel-project
