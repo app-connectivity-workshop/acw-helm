@@ -1,8 +1,8 @@
 apiVersion: workspace.devfile.io/v1alpha2
 kind: DevWorkspace
 metadata:
-  name: {{ ocp4_workload_devspaces_devworkspace_name }}
-  namespace: {{ ocp4_workload_devspaces_devworkspace_namespace }}
+  name: devworkspaces
+  namespace: devworkspaces
 spec:
   routingClass: che
   started: true
