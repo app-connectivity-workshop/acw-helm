@@ -18,6 +18,7 @@ spec:
         app: insurances
         version: v1
     spec:
+      serviceAccountName: discount-access-sa
       containers:
         - name: insurances
           image: quay.io/kiali/demo_travels_insurances:v1
