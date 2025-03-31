@@ -36,6 +36,7 @@ spec:
         app: flights
         version: v1
     spec:
+      serviceAccountName: discount-access-sa
       containers:
         - name: flights
           image: quay.io/kiali/demo_travels_flights:v1
