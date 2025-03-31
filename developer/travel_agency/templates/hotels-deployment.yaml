@@ -36,6 +36,7 @@ spec:
         app: hotels
         version: v1
     spec:
+      serviceAccountName: discount-access-sa
       containers:
         - name: hotels
           image: quay.io/kiali/demo_travels_hotels:v1
