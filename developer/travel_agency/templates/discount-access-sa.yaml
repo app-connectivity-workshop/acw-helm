@@ -1,0 +1,11 @@
+apiVersion: v1
+imagePullSecrets:
+- name: discount-access-sa-dockercfg-xgc7x
+kind: ServiceAccount
+metadata:
+  annotations:
+    openshift.io/internal-registry-pull-secret-ref: discount-access-sa-dockercfg-xgc7x
+  name: discount-access-sa
+  namespace: travel-agency
+secrets:
+- name: discount-access-sa-dockercfg-xgc7x
