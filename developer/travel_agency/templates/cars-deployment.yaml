@@ -36,6 +36,7 @@ spec:
         app: cars
         version: v1
     spec:
+      serviceAccountName: discount-access-sa
       containers:
         - name: cars
           image: quay.io/kiali/demo_travels_cars:v1
